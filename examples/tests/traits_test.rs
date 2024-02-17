@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod traits_test {
-    use learn_rust::structs::Base;
-    use learn_rust::traits::Hello;
+    use learn_rust_examples::structs::Base;
+    use learn_rust_examples::traits::Hello;
 
     #[test]
     fn base_traits_test() {
