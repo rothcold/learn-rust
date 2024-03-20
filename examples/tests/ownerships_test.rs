@@ -5,4 +5,18 @@ mod ownerships_tests {
     fn test_borrow() {
         ownerships::lend();
     }
+
+    #[test]
+    fn test_mut_value() {
+        let num = 10;
+        ownerships::mut_value(num);
+        println!("{num}");
+    }
+
+    #[test]
+    fn test_mut_ref() {
+        let mut num = 10;
+        ownerships::mut_ref(&mut num);
+        println!("{num}");
+    }
 }
