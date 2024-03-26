@@ -47,15 +47,15 @@ pub fn change_value_and_use(change: bool) {
     let mut s: String = "".to_string();
     if change {
         s = "def".to_string();
+        println!("Changed!")
     }
-    print!("{s}");
-    print!("{s}");
+    println!("String: {s}");
 }
 
 pub fn mut_value(mut mut_val: i32) {
-    println!("{mut_val}");
+    println!("Original num: {mut_val}");
     mut_val = 3;
-    println!("{mut_val}");
+    println!("Changed num: {mut_val}");
 }
 
 pub fn mut_ref(mut_ref: &mut i32) {

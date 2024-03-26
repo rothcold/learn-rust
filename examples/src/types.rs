@@ -1,3 +1,29 @@
+use std::error::Error;
+use std::fmt;
+#[derive(Debug)]
+pub struct MyError {
+    details: String,
+}
+
+impl MyError {
+    pub fn new(msg: &str) -> MyError {
+        MyError {
+            details: msg.to_string(),
+        }
+    }
+}
+
+impl fmt::Display for MyError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.details)
+    }
+}
+
+impl Error for MyError {
+    fn description(&self) -> &str {
+        &self.details
+    }
+}
 pub fn basic_types() {
     let b = true;
     println!("{b} is a Boolean variable.");
@@ -14,4 +40,21 @@ pub fn basic_types() {
 // Mark the function never return normally
 pub fn never_return() -> ! {
     panic!("return nothing");
+}
+
+pub fn option(x: Option<i32>) {
+    if let Some(y) = x {
+        println!("x is {y}");
+        println!("x is {}", x.unwrap())
+    } else {
+        println!("x is None")
+    }
+}
+
+pub fn result(x: Result<String, Box<dyn Error>>) {
+    if let Ok(y) = x {
+        println!("x is {y}");
+    } else {
+        println!("Error is {}", x.unwrap_err().to_string())
+    }
 }

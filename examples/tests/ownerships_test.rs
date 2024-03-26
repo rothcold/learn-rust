@@ -10,7 +10,7 @@ mod ownerships_tests {
     fn test_mut_value() {
         let num = 10;
         ownerships::mut_value(num);
-        println!("{num}");
+        println!("Original num: {num}");
     }
 
     #[test]
